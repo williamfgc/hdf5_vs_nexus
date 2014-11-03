@@ -1,5 +1,4 @@
-
-include_directories ( SYSTEM ${NEXUS_INCLUDE_DIR} ${POCO_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/../common )
+include_directories ( ${NEXUS_INCLUDE_DIR} ${THIRD_PARTY}/include ${CMAKE_CURRENT_SOURCE_DIR}/../common )
 
 add_executable (with_nexus trial.cpp)
 
