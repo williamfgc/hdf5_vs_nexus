@@ -12,6 +12,8 @@ project (hdf5_compare)
 
 find_package ( Nexus 4.3.0 REQUIRED )
 
+find_package ( Poco REQUIRED )
+
 SET (HDF5_DIR "${CMAKE_MODULE_PATH}" CACHE PATH "HDF5 Directory path")
 find_package ( HDF5 COMPONENTS HL REQUIRED  CONFIGS hdf5-config.cmake )
 
