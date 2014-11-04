@@ -35,14 +35,13 @@ std::vector<double> read_double_data(NXhandle& fileId, const std::string& path)
   return vec;
 }
 
-int main()
+void do_test(const std::string& relative_file_path)
 {
-
   Timer timer;
   timer.start();
 
   NXhandle fileId;
-  Poco::Path file_path("../common/INTER00013460.nxs");
+  Poco::Path file_path(relative_file_path);
   const std::string sFile_path = file_path.absolute().toString();
   std::cout << sFile_path << std::endl;
   NXstatus stat = NXopen(sFile_path.c_str(), NXACC_READ, &fileId);
@@ -77,4 +76,14 @@ int main()
   timer.stop();
   std::cout << "Elapsed time in ms: " << timer.elapsed_ms() << std::endl;
 
+};
+
+
+int main()
+{
+  do_test("../common/INTER00013460.nxs");
+
+  do_test("../common/POLREF00004699.nxs");
+
+  return 0;
 }

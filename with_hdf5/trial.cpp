@@ -17,7 +17,7 @@ std::string read_string_data(hid_t file_id, const std::string& path)
 
   hid_t datatype = H5Dget_type(dataset_id); /* datatype handle */
 
-  size_t size  = H5Tget_size(datatype);
+  size_t size = H5Tget_size(datatype);
 
   char* data = new char[size];
   herr_t status = H5Dread(dataset_id, datatype, H5S_ALL, H5S_ALL, H5P_DEFAULT, data);
@@ -41,12 +41,12 @@ std::vector<double> read_double_data(hid_t file_id, const std::string& path)
   return data;
 }
 
-int main()
+void do_test(const std::string& relative_file_path)
 {
   common::Timer timer;
   timer.start();
 
-  Poco::Path file_path("../common/INTER00013460.nxs");
+  Poco::Path file_path(relative_file_path);
   const std::string file = file_path.toString();
 
   /* Open an existing file. */
@@ -72,6 +72,13 @@ int main()
   timer.stop();
 
   std::cout << "Elapsed time in ms: " << timer.elapsed_ms() << std::endl;
+}
+
+int main()
+{
+  do_test("../common/INTER00013460.nxs");
+
+  do_test("../common/POLREF00004699.nxs");
 
   return 0;
 }
