@@ -35,7 +35,7 @@ std::vector<double> read_double_data(NXhandle& fileId, const std::string& path)
   return vec;
 }
 
-void do_test(const std::string& relative_file_path)
+void do_test_workspace2d(const std::string& relative_file_path)
 {
   Timer timer;
   timer.start();
@@ -78,12 +78,19 @@ void do_test(const std::string& relative_file_path)
 
 };
 
+void do_test_event_workspace(const std::string& relative_file_path)
+{
+  //TODO. The HDF5/Nexus file structure is different from the workspace2D so new implementation needed of above.
+}
+
 
 int main()
 {
-  do_test("../common/INTER00013460.nxs");
+  do_test_workspace2d("../common/INTER00013460.nxs");
 
-  do_test("../common/POLREF00004699.nxs");
+  do_test_workspace2d("../common/POLREF00004699.nxs");
+
+  do_test_workspace2d("../common/POLREF000011040.nxs");
 
   return 0;
 }
