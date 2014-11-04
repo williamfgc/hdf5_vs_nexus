@@ -1,6 +1,6 @@
 # Performance Results
 
-Tests are avearaged over 6 runs
+All tests below are averaged over 6 runs
 
 | file/instrument        | info           | with nexus/ms  | with hdf5/ms
 | ------------- |:-------------:| -----:|-----:|
