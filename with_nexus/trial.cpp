@@ -92,5 +92,7 @@ int main()
 
   do_test_workspace2d("../common/POLREF000011040.nxs");
 
+  do_test_workspace2d("../common/MAR11001.nxs");
+
   return 0;
 }
