@@ -11,6 +11,20 @@ int multiply(int x, int y)
   return x * y;
 }
 
+std::string read_string_data(hid_t file_id, const std::string& path)
+{
+  hid_t dataset_id = H5Dopen(file_id, path.c_str(), H5P_DEFAULT);
+
+  hid_t datatype = H5Dget_type(dataset_id); /* datatype handle */
+
+  size_t size  = H5Tget_size(datatype);
+
+  char* data = new char[size];
+  herr_t status = H5Dread(dataset_id, datatype, H5S_ALL, H5S_ALL, H5P_DEFAULT, data);
+  H5Dclose(dataset_id);
+  return std::string(data);
+}
+
 std::vector<double> read_double_data(hid_t file_id, const std::string& path)
 {
   hid_t dataset_id = H5Dopen(file_id, path.c_str(), H5P_DEFAULT);
@@ -41,7 +55,10 @@ int main()
   hid_t dataset_id1 = H5Gopen(file_id, "/mantid_workspace_1", H5P_DEFAULT);
   hid_t dataset_id2 = H5Gopen(file_id, "/mantid_workspace_1/workspace", H5P_DEFAULT);
 
-  std::string path = "/mantid_workspace_1/workspace/values";
+  std::string path = "/mantid_workspace_1/instrument/instrument_xml/data";
+  std::string instrumentXML = read_string_data(file_id, path);
+
+  path = "/mantid_workspace_1/workspace/values";
   std::vector<double> values = read_double_data(file_id, path);
 
   path = "/mantid_workspace_1/workspace/errors";

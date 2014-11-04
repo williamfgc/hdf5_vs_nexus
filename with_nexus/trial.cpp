@@ -52,6 +52,7 @@ int main()
   NXopengroup(fileId, path.c_str(), "NXentry");
 
   path = "instrument/instrument_xml/data";
+  read_string_data(fileId, path);
 
   // Open the workspace entry
   path = "workspace";
@@ -59,11 +60,11 @@ int main()
 
   // Open values
   path = "values";
-  read_double_data(fileId, path.c_str());
+  read_double_data(fileId, path);
 
   // Open errors
   path = "errors";
-  read_double_data(fileId, path.c_str());
+  read_double_data(fileId, path);
 
   // Close the groups
   NXclosegroup(fileId);
