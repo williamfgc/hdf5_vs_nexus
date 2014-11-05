@@ -1,6 +1,9 @@
-# Performance Results
-
+Performance Results
+===================
 All tests below are averaged over 6 runs
+
+Owen's runs
+-----------
 
 | file/instrument        | info           | with nexus/ms  | with hdf5/ms
 | ------------- |:-------------:| -----:|-----:|
@@ -8,3 +11,13 @@ All tests below are averaged over 6 runs
 | POLREF      | Histogram, 246 * 1000      |   15 | 15 |
 | POLREF | Histogram 641 * 1000   |  39   | 40|
 | MARI | Histogram 922 * 2663    |  111   | 111 |
+
+Pete's machine
+--------------
+
+| file/instrument        | info           | with nexus/ms  | with hdf5/ms
+| ------------- |:----------------------:| -----:|-----:|
+| INTER         | Histogram, 5 * 1000    | 4 | 2 |
+| POLREF        | Histogram, 246 * 1000  |  22  | 22 |
+| POLREF        | Histogram 641 * 1000   |  49  | 46 |
+| MARI          | Histogram 922 * 2663   |  142   | 139 |
