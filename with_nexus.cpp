@@ -8,22 +8,21 @@
 
 using common::Timer;
 
-std::string read_string_data(NXhandle& fileId, const std::string& path)
-{
+std::string read_string_data(NXhandle &fileId, const std::string &path) {
   int rank;
   int dims[4];
   int type;
   NXopendata(fileId, path.c_str());
   NXgetinfo(fileId, &rank, dims, &type);
   int n = dims[0];
-  char* buffer = new char[n];
+  char *buffer = new char[n];
   NXstatus stat = NXgetdata(fileId, buffer);
   NXclosedata(fileId);
   return std::string(buffer);
 }
 
-std::vector<double> read_double_data(NXhandle& fileId, const std::string& path)
-{
+std::vector<double> read_double_data(NXhandle &fileId,
+                                     const std::string &path) {
   NXopendata(fileId, path.c_str());
   int rank;
   int dims[4];
@@ -36,8 +35,7 @@ std::vector<double> read_double_data(NXhandle& fileId, const std::string& path)
   return vec;
 }
 
-void do_test_workspace2d(const std::string& filename)
-{
+void do_test_workspace2d(const std::string &filename) {
   Timer timer;
   timer.start();
 
@@ -74,36 +72,29 @@ void do_test_workspace2d(const std::string& filename)
   // Stop
   timer.stop();
   std::cout << timer.elapsed_ms() << std::endl;
-
 };
 
-void do_test_event_workspace(const std::string& relative_file_path)
-{
-  //TODO. The HDF5/Nexus file structure is different from the workspace2D so new implementation needed of above.
+void do_test_event_workspace(const std::string &relative_file_path) {
+  // TODO. The HDF5/Nexus file structure is different from the workspace2D so
+  // new implementation needed of above.
 }
 
-
-int main(int argc, const char* argv[])
-{
+int main(int argc, const char *argv[]) {
   // get the filename from the command line
-  if (argc == 1)
-  {
-   common::print_usage(argv[0]);
+  if (argc == 1) {
+    common::print_usage(argv[0]);
     return 1;
   }
 
   // process every file
   int result = 0;
-  for (int i = 1; i < argc; ++i)
-  {
+  for (int i = 1; i < argc; ++i) {
     const std::string filename = common::to_filename(argv[i]);
-    if (filename.empty())
-    {
-      std::cerr << "Failed to find readable file \"" << argv[i] << "\"" << std::endl;
+    if (filename.empty()) {
+      std::cerr << "Failed to find readable file \"" << argv[i] << "\""
+                << std::endl;
       result = -1;
-    }
-    else
-    {
+    } else {
       do_test_workspace2d(filename);
     }
   }

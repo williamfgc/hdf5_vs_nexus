@@ -8,7 +8,4 @@
 #ifndef PATH_H_
 #define PATH_H_
 
-
-
-
 #endif /* PATH_H_ */

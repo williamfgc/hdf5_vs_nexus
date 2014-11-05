@@ -10,33 +10,22 @@
 
 #include <time.h>
 
+namespace common {
 
-namespace common
-{
+class Timer {
+private:
+  clock_t m_begin;
+  clock_t m_end;
 
-  class Timer
-  {
-  private:
+public:
+  Timer();
 
-    clock_t m_begin;
-    clock_t m_end;
+  void start();
 
-  public:
+  void stop();
 
-    Timer();
-
-    void start();
-
-    void stop();
-
-    double elapsed_ms() const;
-
-  };
-
-
+  double elapsed_ms() const;
+};
 }
-
-
-
 
 #endif /* TIMER_H_ */
