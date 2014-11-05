@@ -84,15 +84,20 @@ void do_test_event_workspace(const std::string& relative_file_path)
 }
 
 
-int main()
+int main(int argc, const char* argv[])
 {
-  do_test_workspace2d("../common/INTER00013460.nxs");
+  std::string dataDir("../common/data");
+  if (argc > 1)
+    dataDir = argv[1];
+  std::cout << "looking for data in " << dataDir << std::endl;
 
-  do_test_workspace2d("../common/POLREF00004699.nxs");
+  do_test_workspace2d(dataDir + "/INTER00013460.nxs");
 
-  do_test_workspace2d("../common/POLREF000011040.nxs");
+  do_test_workspace2d(dataDir + "/POLREF00004699.nxs");
 
-  do_test_workspace2d("../common/MAR11001.nxs");
+  do_test_workspace2d(dataDir + "/POLREF000011040.nxs");
+
+  do_test_workspace2d(dataDir + "/MAR11001.nxs");
 
   return 0;
 }

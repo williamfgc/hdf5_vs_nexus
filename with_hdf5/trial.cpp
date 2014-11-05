@@ -78,15 +78,20 @@ void do_test_event_workspace(const std::string& relative_file_path)
   //TODO. The HDF5/Nexus file structure is different from the workspace2D so new implementation needed of above.
 }
 
-int main()
+int main(int argc, const char* argv[])
 {
-  do_test_workspace2d("../common/data/INTER00013460.nxs");
+  std::string dataDir("../common/data");
+  if (argc > 1)
+    dataDir = argv[1];
+  std::cout << "looking for data in " << dataDir << std::endl;
 
-  do_test_workspace2d("../common/data/POLREF00004699.nxs");
+  do_test_workspace2d(dataDir + "/INTER00013460.nxs");
 
-  do_test_workspace2d("../common/data/POLREF000011040.nxs");
+  do_test_workspace2d(dataDir + "/POLREF00004699.nxs");
 
-  do_test_workspace2d("../common/data/MAR11001.nxs");
+  do_test_workspace2d(dataDir + "/POLREF000011040.nxs");
+
+  do_test_workspace2d(dataDir + "/MAR11001.nxs");
 
   return 0;
 }
