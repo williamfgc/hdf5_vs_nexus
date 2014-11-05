@@ -1,4 +1,6 @@
 #include <nexus/napi.h>
+#include <nexus/NeXusFile.hpp>
+#include <nexus/NeXusException.hpp>
 #include <string>
 #include <iostream>
 #include <vector>
@@ -36,10 +38,9 @@ std::vector<double> read_double_data(NXhandle &fileId,
 
 void do_test_workspace2d(const std::string &filename) {
   Timer timer;
-  timer.start();
+  timer.reset();
 
   NXhandle fileId;
-  // std::cout << sFile_path << std::endl;
   NXstatus stat = NXopen(filename.c_str(), NXACC_READ, &fileId);
 
   // Open the workspace group
@@ -68,14 +69,26 @@ void do_test_workspace2d(const std::string &filename) {
   // Close the file
   NXclose(&fileId);
 
-  // Stop
-  timer.stop();
-  std::cout << timer.elapsed_ms() << std::endl;
+  timer.print_elapsed_ms();
 };
 
-void do_test_event_workspace(const std::string &relative_file_path) {
+void do_test_event_workspace(const std::string &filename) {
+  Timer timer;
+
+  NeXus::File file(filename);
+  // NXhandle fileId;
+  // NXstatus stat = NXopen(filename.c_str(), NXACC_READ, &fileId);
+  // NXopengroup(fileId, "entry", "NXentry");
+
+  // // get a list of all NXevent_data
+  // std::std::vector<std::string> eventDataNames;
+
+  // // Close the file
+  // NXclose(&fileId);
+
   // TODO. The HDF5/Nexus file structure is different from the workspace2D so
   // new implementation needed of above.
+  timer.print_elapsed_ms();
 }
 
 int main(int argc, const char *argv[]) {
@@ -95,6 +108,7 @@ int main(int argc, const char *argv[]) {
       result = -1;
     } else {
       do_test_workspace2d(filename);
+      // do_test_event_workspace(filename);
     }
   }
 
