@@ -6,4 +6,9 @@ for i in {1..6}
 do
   result="$result $($@)"
 done
-echo $result
+
+if [ $(command -v stats) ]; then
+    stats $result
+else
+    echo $result
+fi
