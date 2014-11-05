@@ -4,7 +4,6 @@
 #include <numeric>
 #include "process_args.h"
 #include "timer.h"
-#include "Poco/Path.h"
 
 int multiply(int x, int y) { return x * y; }
 

@@ -4,7 +4,6 @@
 #include <vector>
 #include "process_args.h"
 #include "timer.h"
-#include "Poco/Path.h"
 
 using common::Timer;
 
