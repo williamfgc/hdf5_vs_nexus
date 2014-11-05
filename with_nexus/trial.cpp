@@ -43,7 +43,7 @@ void do_test_workspace2d(const std::string& relative_file_path)
   NXhandle fileId;
   Poco::Path file_path(relative_file_path);
   const std::string sFile_path = file_path.absolute().toString();
-  std::cout << sFile_path << std::endl;
+  // std::cout << sFile_path << std::endl;
   NXstatus stat = NXopen(sFile_path.c_str(), NXACC_READ, &fileId);
 
   // Open the workspace group

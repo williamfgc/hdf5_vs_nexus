@@ -1,6 +1,6 @@
 
 
-include_directories ( ${HDF5_INCLUDE_DIRS} ${THIRD_PARTY}/include ${CMAKE_CURRENT_SOURCE_DIR}/../common)
+include_directories ( ${HDF5_INCLUDE_DIRS} ${THIRD_PARTY}/include ${CMAKE_CURRENT_SOURCE_DIR}/../)
 
 add_executable(with_hdf5 trial.cpp)
 
