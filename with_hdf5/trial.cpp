@@ -4,7 +4,6 @@
 #include <numeric>
 #include "timer.h"
 #include "Poco/Path.h"
-#include "Timer.h"
 
 int multiply(int x, int y)
 {
@@ -81,13 +80,13 @@ void do_test_event_workspace(const std::string& relative_file_path)
 
 int main()
 {
-  do_test_workspace2d("../common/INTER00013460.nxs");
+  do_test_workspace2d("../common/data/INTER00013460.nxs");
 
-  do_test_workspace2d("../common/POLREF00004699.nxs");
+  do_test_workspace2d("../common/data/POLREF00004699.nxs");
 
-  do_test_workspace2d("../common/POLREF000011040.nxs");
+  do_test_workspace2d("../common/data/POLREF000011040.nxs");
 
-  do_test_workspace2d("../common/MAR11001.nxs");
+  do_test_workspace2d("../common/data/MAR11001.nxs");
 
   return 0;
 }
