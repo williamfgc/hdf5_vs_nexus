@@ -29,5 +29,8 @@ include_directories ( ${NEXUS_INCLUDE_DIR} ${HDF5_INCLUDE_DIRS} ${THIRD_PARTY}/i
 add_executable(with_hdf5 with_hdf5.cpp)
 target_link_libraries (with_hdf5 common ${HDF5_LIBRARIES}  ${POCO_LIB_FOUNDATION})
 
+add_executable (with_napi with_napi.cpp)
+target_link_libraries ( with_napi common ${NEXUS_C_LIBRARIES} ${POCO_LIB_FOUNDATION})
+
 add_executable (with_nexus with_nexus.cpp)
-target_link_libraries ( with_nexus common ${NEXUS_C_LIBRARIES} ${NEXUS_CPP_LIBRARIES} ${POCO_LIB_FOUNDATION})
+target_link_libraries ( with_nexus common ${NEXUS_CPP_LIBRARIES} ${POCO_LIB_FOUNDATION})

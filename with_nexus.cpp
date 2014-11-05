@@ -1,4 +1,3 @@
-#include <nexus/napi.h>
 #include <nexus/NeXusFile.hpp>
 #include <nexus/NeXusException.hpp>
 #include <string>
@@ -9,30 +8,18 @@
 
 using common::Timer;
 
-std::string read_string_data(NXhandle &fileId, const std::string &path) {
-  int rank;
-  int dims[4];
-  int type;
-  NXopendata(fileId, path.c_str());
-  NXgetinfo(fileId, &rank, dims, &type);
-  int n = dims[0];
-  char *buffer = new char[n];
-  NXstatus stat = NXgetdata(fileId, buffer);
-  NXclosedata(fileId);
-  return std::string(buffer);
+std::string read_string_data(NeXus::File &file, const std::string &path) {
+  std::string result;
+  file.readData(path, result);
+
+  return result;
 }
 
-std::vector<double> read_double_data(NXhandle &fileId,
+std::vector<double> read_double_data(NeXus::File &file,
                                      const std::string &path) {
-  NXopendata(fileId, path.c_str());
-  int rank;
-  int dims[4];
-  int type;
-  NXgetinfo(fileId, &rank, dims, &type);
-  int n = dims[0] * dims[1];
-  std::vector<double> vec(n);
-  NXstatus stat = NXgetdata(fileId, &vec[0]);
-  NXclosedata(fileId);
+  std::vector<double> vec;
+  file.readData(path, vec);
+
   return vec;
 }
 
@@ -40,34 +27,28 @@ void do_test_workspace2d(const std::string &filename) {
   Timer timer;
   timer.reset();
 
-  NXhandle fileId;
-  NXstatus stat = NXopen(filename.c_str(), NXACC_READ, &fileId);
+  NeXus::File file(filename);
 
   // Open the workspace group
-  std::string path = "mantid_workspace_1";
-  NXopengroup(fileId, path.c_str(), "NXentry");
+  file.openGroup("mantid_workspace_1", "NXentry");
 
-  path = "instrument/instrument_xml/data";
-  read_string_data(fileId, path);
+  read_string_data(file, "instrument/instrument_xml/data");
 
   // Open the workspace entry
-  path = "workspace";
-  NXopengroup(fileId, path.c_str(), "NXdata");
+  file.openGroup("workspace", "NXdata");
 
-  // Open values
-  path = "values";
-  read_double_data(fileId, path);
+  // // Open values
+  read_double_data(file, "values");
 
-  // Open errors
-  path = "errors";
-  read_double_data(fileId, path);
+  // // Open errors
+  read_double_data(file, "errors");
 
-  // Close the groups
-  NXclosegroup(fileId);
-  NXclosegroup(fileId);
+  // // Close the groups
+  file.closeGroup();
+  file.closeGroup();
 
-  // Close the file
-  NXclose(&fileId);
+  // // Close the file
+  file.close();
 
   timer.print_elapsed_ms();
 };
