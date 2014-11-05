@@ -86,7 +86,7 @@ void do_test_event_workspace(const std::string& relative_file_path)
 
 int main(int argc, const char* argv[])
 {
-  std::string dataDir("../common/data");
+  std::string dataDir(".");
   if (argc > 1)
     dataDir = argv[1];
   std::cout << "looking for data in " << dataDir << std::endl;

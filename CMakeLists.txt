@@ -21,7 +21,7 @@ add_library (common timer.cpp)
 
 add_custom_command(TARGET common PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
-                       ${CMAKE_SOURCE_DIR}/common/data $<TARGET_FILE_DIR:common>)
+                       ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:common>)
 
 include_directories ( ${NEXUS_INCLUDE_DIR} ${HDF5_INCLUDE_DIRS} ${THIRD_PARTY}/include ${CMAKE_CURRENT_SOURCE_DIR})
 
