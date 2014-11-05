@@ -1,4 +1,5 @@
 #include <iostream>
+#include <Poco/File.h>
 #include <Poco/Path.h>
 #include "process_args.h"
 
@@ -14,11 +15,12 @@ namespace common
       Poco::Path path(name);
       path = path.absolute();
       if (path.isFile()) {
-        return path.toString();
+        if (Poco::File(path).canRead()) {
+            return path.toString();
+        }
       }
-      else {
-        return "";
-      }
+
+      return "";
     }
 
 }
