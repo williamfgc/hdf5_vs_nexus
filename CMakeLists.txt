@@ -17,7 +17,7 @@ find_package ( Poco REQUIRED )
 SET (HDF5_DIR "${CMAKE_MODULE_PATH}" CACHE PATH "HDF5 Directory path")
 find_package ( HDF5 COMPONENTS HL REQUIRED  CONFIGS hdf5-config.cmake )
 
-add_library (common timer.cpp)
+add_library (common process_args.cpp timer.cpp)
 
 add_custom_command(TARGET common PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory

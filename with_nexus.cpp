@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "process_args.h"
 #include "timer.h"
 #include "Poco/Path.h"
 
@@ -35,16 +36,14 @@ std::vector<double> read_double_data(NXhandle& fileId, const std::string& path)
   return vec;
 }
 
-void do_test_workspace2d(const std::string& relative_file_path)
+void do_test_workspace2d(const std::string& filename)
 {
   Timer timer;
   timer.start();
 
   NXhandle fileId;
-  Poco::Path file_path(relative_file_path);
-  const std::string sFile_path = file_path.absolute().toString();
   // std::cout << sFile_path << std::endl;
-  NXstatus stat = NXopen(sFile_path.c_str(), NXACC_READ, &fileId);
+  NXstatus stat = NXopen(filename.c_str(), NXACC_READ, &fileId);
 
   // Open the workspace group
   std::string path = "mantid_workspace_1";
@@ -74,7 +73,7 @@ void do_test_workspace2d(const std::string& relative_file_path)
 
   // Stop
   timer.stop();
-  std::cout << "Elapsed time in ms: " << timer.elapsed_ms() << std::endl;
+  std::cout << timer.elapsed_ms() << std::endl;
 
 };
 
@@ -86,18 +85,28 @@ void do_test_event_workspace(const std::string& relative_file_path)
 
 int main(int argc, const char* argv[])
 {
-  std::string dataDir(".");
-  if (argc > 1)
-    dataDir = argv[1];
-  std::cout << "looking for data in " << dataDir << std::endl;
+  // get the filename from the command line
+  if (argc == 1)
+  {
+   common::print_usage(argv[0]);
+    return 1;
+  }
 
-  do_test_workspace2d(dataDir + "/INTER00013460.nxs");
+  // process every file
+  int result = 0;
+  for (int i = 1; i < argc; ++i)
+  {
+    const std::string filename = common::to_filename(argv[i]);
+    if (filename.empty())
+    {
+      std::cerr << "Failed to find readable file \"" << argv[i] << "\"" << std::endl;
+      result = -1;
+    }
+    else
+    {
+      do_test_workspace2d(filename);
+    }
+  }
 
-  do_test_workspace2d(dataDir + "/POLREF00004699.nxs");
-
-  do_test_workspace2d(dataDir + "/POLREF000011040.nxs");
-
-  do_test_workspace2d(dataDir + "/MAR11001.nxs");
-
-  return 0;
+  return result;
 }
