@@ -1,0 +1,9 @@
+#!/bin/sh
+# array to put everythin into
+result=""
+# run the command 6 times
+for i in {1..6}
+do
+  result="$result $($@)"
+done
+echo $result
