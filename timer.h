@@ -15,16 +15,15 @@ namespace common {
 class Timer {
 private:
   clock_t m_begin;
-  clock_t m_end;
 
 public:
   Timer();
 
-  void start();
-
-  void stop();
+  void reset();
 
   double elapsed_ms() const;
+
+  void print_elapsed_ms() const;
 };
 }
 

@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <numeric>
+#include <vector>
 #include "process_args.h"
 #include "timer.h"
 
@@ -39,7 +40,6 @@ std::vector<double> read_double_data(hid_t file_id, const std::string &path) {
 
 void do_test_workspace2d(const std::string &filename) {
   common::Timer timer;
-  timer.start();
 
   /* Open an existing file. */
   hid_t file_id = H5Fopen(filename.c_str(), H5F_ACC_RDWR, H5P_DEFAULT);
@@ -62,12 +62,10 @@ void do_test_workspace2d(const std::string &filename) {
 
   herr_t status = H5Fclose(file_id);
 
-  timer.stop();
-
-  std::cout << timer.elapsed_ms() << std::endl;
+  timer.print_elapsed_ms();
 }
 
-void do_test_event_workspace(const std::string &relative_file_path) {
+void do_test_event_workspace(const std::string &filename) {
   // TODO. The HDF5/Nexus file structure is different from the workspace2D so
   // new implementation needed of above.
 }

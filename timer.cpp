@@ -1,15 +1,17 @@
+#include <iostream>
 #include "timer.h"
 
 namespace common {
-Timer::Timer() : m_begin(0), m_end(0) {}
+Timer::Timer() : m_begin(0) { this->reset(); }
 
-void Timer::start() { m_begin = clock(); }
-
-void Timer::stop() { m_end = clock(); }
+void Timer::reset() { m_begin = clock(); }
 
 double Timer::elapsed_ms() const {
-  double diffticks = m_end - m_begin;
+  double diffticks = clock() - m_begin;
   double diffms = (diffticks * 1000) / CLOCKS_PER_SEC;
   return diffms;
+}
+void Timer::print_elapsed_ms() const {
+  std::cout << this->elapsed_ms() << std::endl;
 }
 }
