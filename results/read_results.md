@@ -5,7 +5,7 @@ class: center, middle
 All tests below are averaged over 6 runs
 
 .bottom[
-[Start slideshow](https://tripu.github.io/remark/remarkise?url=https://github.com/OwenArnold/hdf5_vs_nexus/blob/master/results/read_results.md) generated with [Remark](https://github.com/gnab/remark)]]
+[Start slideshow](https://tripu.github.io/remark/remarkise?url=https://github.com/OwenArnold/hdf5_vs_nexus/blob/master/results/read_results.md) generated with [Remark](https://github.com/gnab/remark)]
 
 ---
 
