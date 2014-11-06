@@ -1,10 +1,12 @@
-[Start slideshow](https://tripu.github.io/remark/remarkise?url=https://github.com/OwenArnold/hdf5_vs_nexus/blob/master/results/read_results.md)
-Performance Results
-===================
+# Performance Results
+
 All tests below are averaged over 6 runs
 
-Owen's runs
------------
+[Start slideshow](https://tripu.github.io/remark/remarkise?url=https://github.com/OwenArnold/hdf5_vs_nexus/blob/master/results/read_results.md)
+
+---
+# Owen's runs
+
 
 | file/instrument        | info           | with nexus/ms  | with hdf5/ms
 | ------------- |:-------------:| -----:|-----:|
@@ -13,8 +15,8 @@ Owen's runs
 | POLREF | Histogram 641 * 1000   |  39   | 40|
 | MARI | Histogram 922 * 2663    |  111   | 111 |
 
-Pete's machine
---------------
+---
+# Pete's machine
 
 | file/instrument        | info           | with napi/ms  | with nexus/ms | with hdf5/ms
 | ------------- |:----------------------:| -----:| -----:| -----:|
