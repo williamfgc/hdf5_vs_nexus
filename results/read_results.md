@@ -9,8 +9,6 @@ All tests below are averaged over 6 runs
 
 ---
 
-class: center
-
 # Owen's runs
 
 
@@ -22,8 +20,6 @@ class: center
 | MARI | Histogram 922 * 2663    |  111   | 111 |
 
 ---
-
-class: center
 
 # Pete's machine
 
