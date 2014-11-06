@@ -2,7 +2,8 @@
 
 All tests below are averaged over 6 runs
 
-[Start slideshow](https://tripu.github.io/remark/remarkise?url=https://github.com/OwenArnold/hdf5_vs_nexus/blob/master/results/read_results.md)
+.bottom[
+[Start slideshow](https://tripu.github.io/remark/remarkise?url=https://github.com/OwenArnold/hdf5_vs_nexus/blob/master/results/read_results.md)]
 
 ---
 
