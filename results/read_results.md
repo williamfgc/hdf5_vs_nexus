@@ -23,9 +23,12 @@ All tests below are averaged over 6 runs
 
 # Pete's machine
 
-| file/instrument        | info           | with nexus (napi)/ms  | with nexus (c++)/ms | with hdf5/ms
+| file/instrument        | info           | with nexus (c++)/ms  | with nexus (napi)/ms | with hdf5/ms
 | ------------- |:----------------------:| -----:| -----:| -----:|
-| INTER         | Histogram, 5 * 1000    | 4 |  3  | 2 |
-| POLREF        | Histogram, 246 * 1000  |  22  | 19 | 22 |
-| POLREF        | Histogram 641 * 1000   |  49  | 47 | 46 |
-| MARI          | Histogram 922 * 2663   |  142   | 136 | 139 |
+| INTER         | Histogram, 5 * 1000    |   3     |   4 |   2 |
+| POLREF        | Histogram, 246 * 1000  |  19     |  22 |  22 |
+| POLREF        | Histogram 641 * 1000   |  47     |  49 |  46 |
+| MARI          | Histogram 922 * 2663   | 136     | 142 | 139 |
+| SEQ_12345     |                        | 472+-4  |     |     |
+| PG3_12345     |                        | 380+-10 |     |     |
+| NOM_12345     |                        | 291+-8  |     |     |
