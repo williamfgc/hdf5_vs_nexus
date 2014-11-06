@@ -12,7 +12,7 @@ All tests below are averaged over 6 runs
 # Owen's runs
 
 
-| file/instrument        | info           | with nexus/ms  | with hdf5/ms
+| file/instrument        | info           | with nexus (napi)/ms  | with hdf5/ms
 | ------------- |:-------------:| -----:|-----:|
 | INTER      | Histogram, 5 * 1000 |3 | 2|
 | POLREF      | Histogram, 246 * 1000      |   15 | 15 |
@@ -23,7 +23,7 @@ All tests below are averaged over 6 runs
 
 # Pete's machine
 
-| file/instrument        | info           | with napi/ms  | with nexus/ms | with hdf5/ms
+| file/instrument        | info           | with nexus (napi)/ms  | with nexus (c++)/ms | with hdf5/ms
 | ------------- |:----------------------:| -----:| -----:| -----:|
 | INTER         | Histogram, 5 * 1000    | 4 |  3  | 2 |
 | POLREF        | Histogram, 246 * 1000  |  22  | 19 | 22 |
