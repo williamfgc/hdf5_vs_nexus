@@ -29,6 +29,6 @@ All tests below are averaged over 6 runs
 | POLREF        | Histogram, 246 * 1000  |  19     |  22 |  22 |
 | POLREF        | Histogram 641 * 1000   |  47     |  49 |  46 |
 | MARI          | Histogram 922 * 2663   | 136     | 142 | 139 |
-| SEQ_12345     |                        | 472+-4  |     |     |
-| PG3_12345     |                        | 380+-10 |     |     |
-| NOM_12345     |                        | 291+-8  |     |     |
+| SEQ_12345     |                        | 472&#241;4  |     |     |
+| PG3_12345     |                        | 380&#241;10 |     |     |
+| NOM_12345     |                        | 291&#241;8  |     |     |
