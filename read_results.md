@@ -39,5 +39,5 @@ All tests below are averaged over 6 runs
 
 1. There does not appear to be a huge difference for the histogram case (equivalent of `LoadNexusProcessed`)
 2. HDF5's c-api is really cumbersome, but has some nice features
-3. The nexus-c++ example is a near identical to what is being done in `LoadEventNexus`. The HDF5-c example is very different.
+3. The [nexus-c++](http://download.nexusformat.org/doxygen/html-cpp/index.html) example is a near identical to what is being done in `LoadEventNexus`. The HDF5-c example is very different.
 4. Further investigation into using [HDF5-C++](http://www.hdfgroup.org/HDF5/doc/cpplus_RM/index.html) are suggested as it already comes with existing packages
