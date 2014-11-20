@@ -25,10 +25,10 @@ All tests below are averaged over 6 runs
 
 | file/instrument  | info                | with nexus (c++)/ms | with nexus (napi)/ms | with hdf5/ms
 | ------------- |:----------------------:| -------------------:| ---:| -----:|
-| INTER         | Histogram, 5 * 1000    |   3                 |   4 |   2 |
-| POLREF        | Histogram, 246 * 1000  |  19                 |  22 |  22 |
-| POLREF        | Histogram 641 * 1000   |  47                 |  49 |  46 |
-| MARI          | Histogram 922 * 2663   | 136                 | 142 | 139 |
+| INTER         | Histogram, 5 * 1000    |   3                 |   4 |   2.0&plusmn;.4 |
+| POLREF        | Histogram, 246 * 1000  |  19                 |  22 |  21&plusmn;4 |
+| POLREF        | Histogram 641 * 1000   |  47                 |  49 |  49&plusmn;3 |
+| MARI          | Histogram 922 * 2663   | 136                 | 142 | 144&plusmn;5 |
 | SEQ_12345     |                        | 472&plusmn;4        |     |     |
 | PG3_12345     |                        | 380&plusmn;10       |     |     |
 | NOM_12345     |                        | 291&plusmn;8        |     |     |
