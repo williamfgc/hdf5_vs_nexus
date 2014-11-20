@@ -42,7 +42,7 @@ void do_test_workspace2d(const std::string &filename) {
   common::Timer timer;
 
   /* Open an existing file. */
-  hid_t file_id = H5Fopen(filename.c_str(), H5F_ACC_RDWR, H5P_DEFAULT);
+  hid_t file_id = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
 
   hid_t dataset_id1 = H5Gopen(file_id, "/mantid_workspace_1", H5P_DEFAULT);
   hid_t dataset_id2 =
@@ -66,8 +66,17 @@ void do_test_workspace2d(const std::string &filename) {
 }
 
 void do_test_event_workspace(const std::string &filename) {
+  common::Timer timer;
+
+  /* Open an existing file. */
+  hid_t file_id = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
+
   // TODO. The HDF5/Nexus file structure is different from the workspace2D so
   // new implementation needed of above.
+
+  herr_t status = H5Fclose(file_id);
+
+  timer.print_elapsed_ms();
 }
 
 int main(int argc, const char *argv[]) {
@@ -87,6 +96,7 @@ int main(int argc, const char *argv[]) {
       result = -1;
     } else {
       do_test_workspace2d(filename);
+      //do_test_event_workspace(filename);
     }
   }
 
