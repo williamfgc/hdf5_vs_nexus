@@ -32,3 +32,12 @@ All tests below are averaged over 6 runs
 | SEQ_12345     |                        | 472&plusmn;4        |     | 183&plusmn;6 |
 | PG3_12345     |                        | 380&plusmn;10       |     | 356&plusmn;2 |
 | NOM_12345     |                        | 291&plusmn;8        |     |  41&plusmn;3 |
+
+---
+
+# Comments on the differences
+
+1. There does not appear to be a huge difference for the histogram case (equivalent of `LoadNexusProcessed`)
+2. HDF5's c-api is really cumbersome, but has some nice features
+3. The nexus-c++ example is a near identical to what is being done in `LoadEventNexus`. The HDF5-c example is very different.
+4. Further investigation into using [HDF5-C++](http://www.hdfgroup.org/HDF5/doc/cpplus_RM/index.html) are suggested as it already comes with existing packages
