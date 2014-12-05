@@ -109,7 +109,8 @@ void do_test_event_workspace(const std::string &filename) {
   /* Open an existing file. */
   hid_t file_id = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
 
-  hid_t entry_id1 = H5Gopen(file_id, "/entry", H5P_DEFAULT);
+  // hid_t entry_id1 = H5Gopen(file_id, "/entry", H5P_DEFAULT);      // SNS
+  hid_t entry_id1 = H5Gopen(file_id, "/raw_data_1", H5P_DEFAULT); // ISIS
 
   // put together a list of NXevent_data
   H5Literate(entry_id1, H5_INDEX_NAME, H5_ITER_INC, NULL, file_info, NULL);

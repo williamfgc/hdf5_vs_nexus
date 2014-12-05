@@ -65,7 +65,8 @@ void do_test_event_workspace(const std::string &filename) {
   Timer timer;
 
   NeXus::File file(filename);
-  file.openGroup("entry", "NXentry");
+  // file.openGroup("entry", "NXentry");   // SNS
+  file.openGroup("raw_data_1", "NXentry"); // ISIS
 
   // get a list of all NXevent_data
   vector<string> eventDataNames;
