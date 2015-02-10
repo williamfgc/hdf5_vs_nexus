@@ -40,6 +40,7 @@ std::vector<NumT> read_data(hid_t loc_id, const std::string &path,
   int product = std::accumulate(dims_out.begin(), dims_out.end(), 1, multiply);
 
   std::vector<NumT> data(product);
+  if (product == 0) return data;
   herr_t status =
       H5Dread(dataset_id, native_type, H5S_ALL, H5S_ALL, H5P_DEFAULT, &data[0]);
   H5Dclose(dataset_id);
